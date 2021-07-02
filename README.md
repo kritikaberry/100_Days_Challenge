@@ -1,5 +1,5 @@
 # 100 days challenge 👋
-### Hi there, I'm <Kritika>- aka [kritikaberry] 👋
+### Hi there, I'm <Kritika> [kritikaberry] 👋
 
 ### I'm a Student, Web Developer, and Writer!!
 
