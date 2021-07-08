@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        map<int,int> freq;
+        int i;
+        //frequency map
+        for (auto i=nums.begin();i!=nums.end();i++)
+        {
+            if(freq.count(*i)==0)
+            {
+                freq.insert(pair<int,int>(*i,1));
+            }
+            else
+            {
+                auto itr=freq.find(*i);
+                if(itr!=freq.end())
+                {
+                    itr->second++;
+                }
+            }
+        }
+        //length of longest harmonious subsequence
+        //max-min=1 => if element x is there, then there should be either x-1 or x+1
+        int len=0;;
+        for (auto itr=freq.begin();itr!=freq.end();++itr)
+        {
+            if(freq.count(itr->first+1)==1)
+            {
+                int j=freq.at(itr->first+1);
+                int l=itr->second+j;
+                if(len<l)
+                {
+                    len=l;
+                }
+                
+            }
+        }
+        return len;
+    }
+};
