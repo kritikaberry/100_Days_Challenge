@@ -1,0 +1,51 @@
+Given an expression string x. Examine whether the pairs and the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in exp.
+For example, the function should return 'true' for exp = “[()]{}{[()()]()}” and 'false' for exp = “[(])”.
+
+
+SOLN:
+class Solution
+{
+    public:
+    bool match(char a,char b)
+    {
+        return ((a=='('&&b==')')||
+                (a=='['&&b==']')||
+                (a=='{'&&b=='}'));
+    }
+    //Function to check if brackets are balanced or not.
+    bool ispar(string x)
+    {
+        // Your code here
+        stack<char>s;
+        if(x.length()%2!=0)
+        {
+            return false;
+        }
+        for(int i=0;i<x.length();i++)
+        {
+            if(x[i]=='(' || x[i]=='[' || x[i]=='{')
+            {
+                s.push(x[i]);
+            }
+            else
+            {   
+                //corner cases
+                if(s.empty()==true)
+                {
+                    return false;
+                }
+                else if(match(s.top(),x[i])==0)
+                {
+                    return false;
+                }
+                else
+                {
+                    s.pop();
+    
+                }
+            }
+        }
+        return(s.empty()==true);
+    }
+
+};
